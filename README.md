@@ -25,10 +25,7 @@ The camera is mounted in an **eye-in-hand configuration**, meaning it moves with
 - Runs in real-time with GPU acceleration
 
 For this application we've finetuned a yolo OBB model on [this dataset](https://universe.roboflow.com/ram-0ay3p/objectdetection-tovrk/dataset/2). The image bellow is a screenshot of the execution of ***`inference.py`*** 
-
-<p align="center">
-  <img src="images/inference_screenshot.png" alt="Description de l'image" width="300"/>
-</p>
+![alt text](images/inference_screenshot.png)
 
 
 ### 2. Eye-in-Hand Extrinsic Calibration
