@@ -26,7 +26,10 @@ The camera is mounted in an **eye-in-hand configuration**, meaning it moves with
 
 For this application we've finetuned a yolo OBB model on [this dataset](https://universe.roboflow.com/ram-0ay3p/objectdetection-tovrk/dataset/2). The image bellow is a screenshot of the execution of ***`inference.py`*** 
 
-![alt text](images/inference_screenshot.png)
+<p align="center">
+  <img src="images/inference_screenshot.png" alt="Description de l'image" width="300"/>
+</p>
+
 
 ### 2. Eye-in-Hand Extrinsic Calibration
 An **eye-in-hand** setup places the camera directly on the robot’s end-effector (the wrist or gripper). This offers several advantages:
