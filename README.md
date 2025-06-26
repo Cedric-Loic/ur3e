@@ -24,7 +24,8 @@ The camera is mounted in an **eye-in-hand configuration**, meaning it moves with
 - Output: Object class + position + rotation angle
 - Runs in real-time with GPU acceleration
 
-For this application we've finetuned a yolo OBB model on [this dataset](https://universe.roboflow.com/ram-0ay3p/objectdetection-tovrk/dataset/2). The image bellow is a screenshot of the execution of ***`inference.py`*** 
+For this application we've finetuned a yolo OBB model on [this dataset](https://universe.roboflow.com/ram-0ay3p/objectdetection-tovrk/dataset/2). The image bellow is a screenshot of the execution of *`yolo_inference.py`*
+
 ![alt text](images/inference_screenshot.png)
 
 
