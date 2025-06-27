@@ -53,8 +53,6 @@ The following equation describes how to transform a single 3D point from the Ziv
   <img src="images/image-1.png" alt="Description de l'image" width="300"/>
 </p>
 
-
-
 ---
 
 ## Installation Instructions
