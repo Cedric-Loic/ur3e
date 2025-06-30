@@ -40,7 +40,7 @@ For this application we've finetuned a yolo OBB model on [this dataset](https://
 <p align="center">
   <img src="images/inference_screenshot.png" alt="Description de l'image" width="800"/>
 </p>
-
+We're then ready to install and prepare all the robotics packages we need 
 
 
 ### 2. Installation of ROS2
