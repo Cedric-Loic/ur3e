@@ -99,7 +99,7 @@ colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-r
 colcon mixin update default
 colcon build --mixin release --executor sequential
 
-echo -e '\nsource /opt/ros/humble/setup.bash\nsource ~/ws_moveit/install/setup.bash' >> ~/.bashrc
+echo -e '\nsource /opt/ros/humble/setup.bash\nsource ~/ros2_ws/install/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 ```
 
