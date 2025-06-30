@@ -63,9 +63,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade
 
-sudo apt install -y ros-humble-desktop
-sudo apt install -y ros-humble-ros-base
-sudo apt install -y ros-dev-tools
 ```
 Then we install moveit2
 ```bash
@@ -83,6 +80,9 @@ cd ~/ros2_ws
 colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
 colcon mixin update default
 colcon build --mixin release --executor sequential
+
+echo -e '\nsource /opt/ros/humble/setup.bash\nsource ~/ws_moveit/install/setup.bash' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 And then we install the ur drivers
