@@ -63,6 +63,21 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade
 
+sudo apt install -y ros-humble-desktop
+sudo apt install -y ros-humble-ros-base
+sudo apt install -y ros-dev-tools
+
+source /opt/ros/humble/setup.bash 
+sudo apt install -y python3-rosdep
+rosdep update
+
+sudo apt update
+sudo apt dist-upgrade
+sudo apt install -y python3-colcon-common-extensions
+sudo apt install -y python3-colcon-mixin
+colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+colcon mixin update default
+sudo apt install -y python3-vcstool
 ```
 Then we install moveit2
 ```bash
@@ -125,8 +140,5 @@ rosdep install -r --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
-Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration 
-
-before going to the net step.
-
+Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
 
