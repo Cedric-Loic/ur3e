@@ -46,6 +46,9 @@ For this application we've finetuned a yolo OBB model on [this dataset](https://
 ### 2. Installation of ROS2
 
 ```bash
+
+sudo apt install -y curl build-essential cmake git -y
+
 locale  # check for UTF-8
 sudo apt update && sudo apt install -y locales
 sudo locale-gen en_US en_US.UTF-8
