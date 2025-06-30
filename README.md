@@ -47,7 +47,7 @@ For this application we've finetuned a yolo OBB model on [this dataset](https://
 
 ```bash
 
-sudo apt install -y curl build-essential cmake git -y
+sudo apt install -y curl build-essential cmake git
 
 locale  # check for UTF-8
 sudo apt update && sudo apt install -y locales
