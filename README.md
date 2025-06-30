@@ -12,7 +12,7 @@ This project implements a robotic system that sorts industrial parts **screws an
 The camera is mounted in an **eye-in-hand configuration**, meaning it moves with the robot arm, offering dynamic visual perception. The robot detects and picks objects based on their type and orientation using a fine-tuned YOLO-OBB model.
 
 ---
-## 📚 Table of Contents
+## Table of Contents
 
 - [Project Overview](#industrial-parts-sorting-using-eye-in-hand-vision-with-ros-2-humble)
 - [Project Theory](#project-theory)
