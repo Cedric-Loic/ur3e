@@ -70,7 +70,8 @@ sudo apt install -y ros-dev-tools
 Then we install moveit2
 ```bash
 
-cd ~/ws_moveit/src
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
 git clone --branch humble https://github.com/moveit/moveit2_tutorials
 vcs import --recursive < moveit2_tutorials/moveit2_tutorials.repos
 sudo apt remove ros-$ROS_DISTRO-moveit*
@@ -78,7 +79,7 @@ sudo rosdep init
 rosdep update
 sudo apt update && rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
 
-cd ~/ws_moveit
+cd ~/ros2_ws
 colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
 colcon mixin update default
 colcon build --mixin release --executor sequential
@@ -124,6 +125,8 @@ rosdep install -r --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
-Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
+Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration 
+
+before going to the net step.
 
 
