@@ -12,7 +12,7 @@ This project implements a robotic system that sorts industrial parts **screws an
 The camera is mounted in an **eye-in-hand configuration**, meaning it moves with the robot arm, offering dynamic visual perception. The robot detects and picks objects based on their type and orientation using a fine-tuned YOLO-OBB model.
 
 ---
-##  Table of Contents
+## 📚 Table of Contents
 
 - [Project Overview](#industrial-parts-sorting-using-eye-in-hand-vision-with-ros-2-humble)
 - [Project Theory](#project-theory)
@@ -64,13 +64,11 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install -y ros-humble-desktop
-s0udo apt install -y ros-humble-ros-base
+sudo apt install -y ros-humble-ros-base
 sudo apt install -y ros-dev-tools
 ```
 Then we install moveit2
 ```bash
-#installation moveit2 ros
-
 
 cd ~/ws_moveit/src
 git clone --branch humble https://github.com/moveit/moveit2_tutorials
@@ -84,12 +82,12 @@ cd ~/ws_moveit
 colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
 colcon mixin update default
 colcon build --mixin release --executor sequential
-
-
 ```
 
-
-
+And then we install the ur drivers
+```bash
+sudo apt-get install -y ros-humble-ur
+```
 
 
 ### 3. Eye-in-Hand Extrinsic Calibration
@@ -126,8 +124,6 @@ rosdep install -r --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
-Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration 
-
-before going to the net step.
+Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
 
 
