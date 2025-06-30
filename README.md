@@ -89,7 +89,6 @@ sudo apt install -y python3-vcstool
 ### 1.3.2. Moveit2
 Then we install moveit2
 ```bash
-
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone --branch humble https://github.com/moveit/moveit2_tutorials
@@ -148,8 +147,24 @@ rosdep install -r --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
+
+
+Right after move the calibration launcher on folder in ros2_ws/src
+
+```bash
+cd
+git clone https://github.com/Cedric-Loic/ur3e.git
+cd ur3e 
+mv calibration_launcher ~/ros2_ws/src
+cd ~/ros2_ws/
+colcon build --packages-select calibration_launcher
+source install/setup.bash
+```
+
+
 Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
 
 ### 1.4.2. how to use the result of the calibration
 
-At the end of your calibration, you should have a static TF2 launch file 
+At the end of your calibration, you should have a static TF2 launch file like [calib_eye_in_hand.launch](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). **Move that file  into ~/ros2_ws/src/calibration_launcher/launch/**
+
