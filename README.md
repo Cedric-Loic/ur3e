@@ -150,4 +150,6 @@ source install/setup.bash
 ```
 Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
 
-### 1.4.2. how to use the result of the calibration 
+### 1.4.2. how to use the result of the calibration
+
+At the end of your calibration, you should have a static TF2 launch file 
