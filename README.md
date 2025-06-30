@@ -1,4 +1,4 @@
-# Industrial Parts Sorting Using Eye-in-Hand Vision with ROS 2 Humble
+# 1. Industrial Parts Sorting Using Eye-in-Hand Vision with ROS 2 Humble
 
 This project implements a robotic system that sorts industrial parts **screws and nuts** in real-time as they move along a conveyor belt. It combines **vision algorithm**, **robotics**, and **AI** using the following components:
 
@@ -12,22 +12,24 @@ This project implements a robotic system that sorts industrial parts **screws an
 The camera is mounted in an **eye-in-hand configuration**, meaning it moves with the robot arm, offering dynamic visual perception. The robot detects and picks objects based on their type and orientation using a fine-tuned YOLO-OBB model.
 
 ---
-## Table of Contents
+## 1.1. Table of Contents
 
-- [Project Overview](#industrial-parts-sorting-using-eye-in-hand-vision-with-ros-2-humble)
-- [Project Theory](#project-theory)
-  - [1. YOLO-OBB Detection](#1-yolo-obb-detection)
-  - [2. Installation of ROS2](#2-Installation-of-ROS2)
-  - [3. Eye-in-Hand Extrinsic Calibration](#3-eye-in-hand-extrinsic-calibration)
-    - [Moveit2_calibration installation](#Moveit2_calibration-installation)
+
+- [1. Industrial Parts Sorting Using Eye-in-Hand Vision with ROS 2 Humble](#1-industrial-parts-sorting-using-eye-in-hand-vision-with-ros-2-humble)
+  - [1.1. Table of Contents](#11-table-of-contents)
+  - [1.2. YOLO-OBB Detection](#12-yolo-obb-detection)
+  - [1.3. Main installations](#13-main-installations)
+    - [1.3.1. Ros2](#131-ros2)
+    - [1.3.2. Moveit2](#132-moveit2)
+    - [1.3.3. UR drivers](#133-ur-drivers)
+  - [1.4. Eye-in-Hand Extrinsic Calibration](#14-eye-in-hand-extrinsic-calibration)
+    - [1.4.1. Moveit2\_calibration installation](#141-moveit2_calibration-installation)
+    - [1.4.2. how to use the result of the calibration](#142-how-to-use-the-result-of-the-calibration)
 
 
 
 ---
-## Project Theory
-
-
-### 1. YOLO-OBB Detection
+## 1.2. YOLO-OBB Detection
 
 *[YOLO-OBB](https://docs.ultralytics.com/fr/tasks/obb/)* extends standard object detection by predicting rotated bounding boxes. This is essential for understanding how the part is oriented on the conveyor and for computing the correct approach angle for the gripper.
 
@@ -40,10 +42,11 @@ For this application we've finetuned a yolo OBB model on [this dataset](https://
 <p align="center">
   <img src="images/inference_screenshot.png" alt="Description de l'image" width="800"/>
 </p>
-We're then ready to install and prepare all the robotics packages we need 
 
 
-### 2. Installation of ROS2
+
+## 1.3. Main installations 
+### 1.3.1. Ros2
 
 ```bash
 
@@ -82,6 +85,8 @@ colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-r
 colcon mixin update default
 sudo apt install -y python3-vcstool
 ```
+
+### 1.3.2. Moveit2
 Then we install moveit2
 ```bash
 
@@ -104,12 +109,13 @@ source ~/.bashrc
 ```
 
 And then we install the ur drivers
+### 1.3.3. UR drivers
 ```bash
 sudo apt-get install -y ros-humble-ur
 ```
 
 
-### 3. Eye-in-Hand Extrinsic Calibration
+## 1.4. Eye-in-Hand Extrinsic Calibration
 An **eye-in-hand** setup places the camera directly on the robot’s end-effector (the wrist or gripper). This offers several advantages:
 
 - The robot can look at different positions dynamically.
@@ -132,9 +138,8 @@ The following equation describes how to transform a single 3D point from the dep
 Our hand-Eye calibration was done using [`MoveIt2 Calibration`](https://github.com/AndrejOrsula/moveit2_calibration).
 
 
-#### Moveit2_calibration installation
+### 1.4.1. Moveit2_calibration installation
 
-> We assume you have **ROS2 humble** already installed. If not, please install it from the [official installation guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 ```bash
 cd ~/ros2_ws/src
 git clone https://github.com/AndrejOrsula/moveit2_calibration.git
@@ -145,3 +150,4 @@ source install/setup.bash
 ```
 Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/examples/hand_eye_calibration/hand_eye_calibration_tutorial.html) tutorial to perform your extrinsic calibration before going to the next step.
 
+### 1.4.2. how to use the result of the calibration 
