@@ -166,5 +166,9 @@ Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/ex
 
 ### 1.4.2. how to use the result of the calibration
 
-At the end of your calibration, you should have a static TF2 launch file like [calib_eye_in_hand.launch](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). **Move that file  into ~/ros2_ws/src/calibration_launcher/launch/**
+At the end of your calibration, you should have a static TF2 launch file that looks like [calib_eye_in_hand.launch](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). 
+**Move that file  into ~/ros2_ws/src/calibration_launcher/launch/**
+```bash
+ros2 launch calibration_launcher calib_eye_in_hand.launch.py 
 
+```
