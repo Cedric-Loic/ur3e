@@ -119,18 +119,37 @@ sudo apt-get install -y ros-humble-ur
 
 On UR3e side, PolyScope provides the interface to transfer data through TCP/IP, and to control the robot. We just need a little config on the computer to connect to the robot.
 
+On the UR teach pendant home screen, select Menu > Settings > System > Network.  
 
-First 
+![alt text](images/polyscope.png)
 
-```bash
-sudo apt-get install -y ros-humble-ur
-```
+Connect an Ethernet cable between your UR robot and your remote host. Then on the network settings of your computer  create a new wired profile named for example "Universal Robot" and set a static IP like in the example below.
+
+<p align="center">
+  <img src="images/network_config.png" alt="Description de l'image" width="500"/>
+</p>
+
+
+However, the robot requires an add-on module (also known as **URCaps**) to enable commands to be executed via external control (via IPv4 address). Install the [externalcontrol-1.0.5.urcap](https://github.com/Cedric-Loic/ur3e/blob/main/externalcontrol-1.0.5.urcap) file and put it on a USB stick to plug into the robot's teachbox.
 
 ### 1.3.5. Test
-Let's test this installation 
+Let's test this installation. Open a 2 terminal windows, and exececute those commands :
+ 
+  >**Don't forget to change the IP adress if necessary** 
+
 ```bash
-sudo apt-get install -y ros-humble-ur
+ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 launch_rviz:=false
 ```
+```bash
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.5.3
+```
+
+
+You should now see your Robot appear on Rviz : 
+
+<p align="center">
+  <img src="images/sceenshot_rviz.png" alt="Description de l'image" width="800"/>
+</p>
 
 
 ## 1.4. Eye-in-Hand Extrinsic Calibration
@@ -187,6 +206,21 @@ Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/ex
 
 At the end of your calibration, you should have a static TF2 launch file that looks like [calib_eye_in_hand.launch.py](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). 
 **Move your launch file  into ~/ros2_ws/src/calibration_launcher/launch/**
+>**Don't forget to change the IP adress if necessary** now in different terminal windows  
 ```bash
 ros2 launch calibration_launcher <NAME_OF_YOUR_LAUNCHER_FILE> 
 ```
+
+```bash
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 launch_rviz:=false
+```
+
+```bash
+ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 
+```
+
+Now by clicking on the **Add** button on Rviz,  and selecting TF you should  see your robot and the location of your camera  
+
+<p align="center">
+  <img src="images/sceenshot_rviz_calib.png" alt="Description de l'image" width="800"/>
+</p>
