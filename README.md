@@ -129,7 +129,8 @@ Connect an Ethernet cable between your UR robot and your remote host. Then on th
   <img src="images/network_config.png" alt="Description de l'image" width="500"/>
 </p>
 
->Try to piing your robot after 
+>Try to ping your robot after
+
 However, the robot requires an add-on module (also known as **URCaps**) to enable commands to be executed via external control (via IPv4 address). Install the [externalcontrol-1.0.5.urcap](https://github.com/Cedric-Loic/ur3e/blob/main/externalcontrol-1.0.5.urcap) file and put it on a USB stick to plug into the robot's teachbox.
 
 ### 1.3.5. Test
