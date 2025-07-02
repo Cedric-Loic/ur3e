@@ -18,10 +18,12 @@ The camera is mounted in an **eye-in-hand configuration**, meaning it moves with
 - [1. Industrial Parts Sorting Using Eye-in-Hand Vision with ROS 2 Humble](#1-industrial-parts-sorting-using-eye-in-hand-vision-with-ros-2-humble)
   - [1.1. Table of Contents](#11-table-of-contents)
   - [1.2. YOLO-OBB Detection](#12-yolo-obb-detection)
-  - [1.3. Main installations](#13-main-installations)
+  - [1.3. Main installations and configurations](#13-main-installations-and-configurations)
     - [1.3.1. Ros2](#131-ros2)
     - [1.3.2. Moveit2](#132-moveit2)
     - [1.3.3. UR drivers](#133-ur-drivers)
+    - [1.3.4. UR3e and computer Network Configuration](#134-ur3e-and-computer-network-configuration)
+    - [1.3.5. Test](#135-test)
   - [1.4. Eye-in-Hand Extrinsic Calibration](#14-eye-in-hand-extrinsic-calibration)
     - [1.4.1. Moveit2\_calibration installation](#141-moveit2_calibration-installation)
     - [1.4.2. how to use the result of the calibration](#142-how-to-use-the-result-of-the-calibration)
@@ -45,7 +47,7 @@ For this application we've finetuned a yolo OBB model on [this dataset](https://
 
 
 
-## 1.3. Main installations 
+## 1.3. Main installations and configurations 
 ### 1.3.1. Ros2
 
 ```bash
@@ -107,8 +109,25 @@ echo -e '\nsource /opt/ros/humble/setup.bash\nsource ~/ros2_ws/install/setup.bas
 source ~/.bashrc
 ```
 
-And then we install the ur drivers
 ### 1.3.3. UR drivers
+And then we install the ur drivers
+```bash
+sudo apt-get install -y ros-humble-ur
+```
+
+### 1.3.4. UR3e and computer Network Configuration
+
+On UR3e side, PolyScope provides the interface to transfer data through TCP/IP, and to control the robot. We just need a little config on the computer to connect to the robot.
+
+
+First 
+
+```bash
+sudo apt-get install -y ros-humble-ur
+```
+
+### 1.3.5. Test
+Let's test this installation 
 ```bash
 sudo apt-get install -y ros-humble-ur
 ```
@@ -166,9 +185,8 @@ Please follow the [Hand-Eye Calibration](https://moveit.picknik.ai/humble/doc/ex
 
 ### 1.4.2. how to use the result of the calibration
 
-At the end of your calibration, you should have a static TF2 launch file that looks like [calib_eye_in_hand.launch](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). 
-**Move that file  into ~/ros2_ws/src/calibration_launcher/launch/**
+At the end of your calibration, you should have a static TF2 launch file that looks like [calib_eye_in_hand.launch.py](https://github.com/Cedric-Loic/ur3e/blob/main/calib_eye_in_hand.launch.py). 
+**Move your launch file  into ~/ros2_ws/src/calibration_launcher/launch/**
 ```bash
-ros2 launch calibration_launcher calib_eye_in_hand.launch.py 
-
+ros2 launch calibration_launcher <NAME_OF_YOUR_LAUNCHER_FILE> 
 ```
