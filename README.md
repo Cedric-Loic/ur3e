@@ -183,6 +183,7 @@ cd ~/ros2_ws/src
 git clone https://github.com/AndrejOrsula/moveit2_calibration.git
 vcs import src < src/moveit_calibration/moveit_calibration.repos --skip-existing
 rosdep install -r --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
+cd ~/ros2_ws
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
