@@ -215,11 +215,11 @@ ros2 launch calibration_launcher <NAME_OF_YOUR_LAUNCHER_FILE>
 ```
 
 ```bash
-ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 launch_rviz:=false
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 
 ```
 
 ```bash
-ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 
+ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur3e robot_ip:=192.168.5.3 launch_rviz:=false
 ```
 
 Now by clicking on the **Add** button on Rviz,  and selecting TF you should  see your robot and the location of your camera  
